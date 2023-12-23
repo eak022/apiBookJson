@@ -2,17 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-app.use(cors()); // ใช้ CORS middleware ก่อนการเรียกใช้เส้นทาง
+const booksData = require('./books.json'); // นำเข้าข้อมูลหนังสือจากไฟล์ books.json
 
-// สร้างเส้นทางสำหรับ API endpoint เพื่อรับข้อมูลหนังสือทั้งหมด
-app.get('/books.json', (req, res) => {
-  res.json(booksData.book); // ส่งข้อมูลหนังสือทั้งหมดกลับเป็น JSON
+app.use(cors());
+
+app.get('/', (req, res) => {
+  res.json(booksData.book);
 });
 
-const PORT = process.env.PORT || 3000; // กำหนดพอร์ต
+const PORT = process.env.PORT || 3000;
 
-// เริ่ม Express server และรอการเชื่อมต่อ
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
