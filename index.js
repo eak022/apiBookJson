@@ -2,12 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
-
+const booksData = require('./books.json');
 
 app.use(cors()); // ใช้ CORS middleware ก่อนการเรียกใช้เส้นทาง
 
 // สร้างเส้นทางสำหรับ API endpoint เพื่อรับข้อมูลหนังสือทั้งหมด
-app.get('/', (req, res) => {
+app.get('/books.json', (req, res) => {
   res.json(booksData.book); // ส่งข้อมูลหนังสือทั้งหมดกลับเป็น JSON
 });
 
