@@ -1,7 +1,7 @@
 const express = request('express');
+const cors = request('cors');
 const app = express();
-const booksData = request('./books.json'); // เรียกใช้ไฟล์ JSON ที่เก็บข้อมูลหนังสือ
-const cors = request('cors'); // เพิ่ม middleware CORS
+
 
 
 app.use(cors()); // ใช้ CORS middleware ก่อนการเรียกใช้เส้นทาง
