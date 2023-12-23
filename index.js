@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 
 app.post('/books', (req, res) => {
   // รับข้อมูลที่ส่งมาจาก request เพื่อสร้างหนังสือใหม่
-  const newBook = req.body; // ตัวอย่างการรับข้อมูลจาก body (ต้องใช้ body-parser middleware)
+  const newBook = req.body; // ตัวอย่างการรับข้อมูล body (ต้องใช้ body-parser middleware)
 
   // เพิ่มหนังสือใหม่ลงใน booksData
   booksData.book.push(newBook);
