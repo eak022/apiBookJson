@@ -12,7 +12,7 @@ app.use(cors());
 // เพิ่มเส้นทางใหม่โดยใช้พารามิเตอร์สำหรับ ID
 app.get('/books/:id', (req, res) => {
   const bookId = parseInt(req.params.id); // ดึง ID ที่ส่งมาจาก request
-  const book = booksData.book.find(book => book.id === bookId); // ค้นหาหนังสือตาม ID
+  const book = booksData.book.find(book => book.id === bookId); // ค้นหาหนังสือ ID
 
   if (book) {
     res.json(book); // ส่งข้อมูลของหนังสือที่พบ
