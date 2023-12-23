@@ -21,6 +21,27 @@ app.get('/books/:id', (req, res) => {
   }
 });
 
+app.post('/books', (req, res) => {
+  // ดึงไอดีสุดท้ายออกมาจาก booksData
+  const lastBookId = booksData.book.length > 0 ? booksData.book[booksData.book.length - 1].id : 0;
+  
+  // กำหนดไอดีใหม่สำหรับหนังสือที่จะเพิ่มเข้าไป
+  const newBookId = lastBookId + 1;
+
+  // รับข้อมูลที่ส่งมาจาก request เพื่อสร้างหนังสือใหม่
+  const newBook = req.body;
+
+  // เพิ่มไอดีใหม่ในข้อมูลหนังสือที่จะเพิ่มเข้าไป
+  newBook.id = newBookId;
+
+  // เพิ่มหนังสือใหม่ลงใน booksData
+  booksData.book.push(newBook);
+
+  // บันทึกข้อมูลลงในไฟล์ books.json (ต้องการการจัดการไฟล์แบบอื่น เช่น fs)
+  // ...
+
+  res.json(newBook); // ส่งข้อมูลของหนังสือใหม่ที่ถูกเพิ่ม
+});
 
 app.get('/', (req, res) => {
   res.json(booksData.book);
