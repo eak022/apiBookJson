@@ -1,7 +1,8 @@
-const express = require('express');
+const express = request('express');
 const app = express();
-const booksData = require('./books.json'); // เรียกใช้ไฟล์ JSON ที่เก็บข้อมูลหนังสือ
-const cors = require('cors'); // เพิ่ม middleware CORS
+const booksData = request('./books.json'); // เรียกใช้ไฟล์ JSON ที่เก็บข้อมูลหนังสือ
+const cors = request('cors'); // เพิ่ม middleware CORS
+
 
 app.use(cors()); // ใช้ CORS middleware ก่อนการเรียกใช้เส้นทาง
 
@@ -16,3 +17,4 @@ const PORT = process.env.PORT || 3000; // กำหนดพอร์ต
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
